@@ -63,12 +63,12 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
 Load balancing ensures that the application will be highly [available], in addition to restricting [traffic] to the network.
-- _TODO: What aspect of security do load balancers protect? [defends an organization against distributed denial-of-service (DDoS)]
+- _What aspect of security do load balancers protect? [defends an organization against distributed denial-of-service (DDoS)]
 What is the advantage of a jump box?_Jump box prevents all Azure VM's to expose to the public. This means that this will be our entry point connecting via Remote Desktop Protocol (RDP) from our on-premise network. It also helps us to open only one port instead of several ports to connect different virtual machines present in the Azure cloud [availability]
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the [logs] and system [traffic].
-- _TODO: What does Filebeat watch for?_[watches for log files/locations and collects log events]
-- _TODO: What does Metricbeat record?_[ takes the metrics and statistics that it collects and ships them to the output that you specify, such as Elasticsearch or Logstash.]
+- _What does Filebeat watch for?_[watches for log files/locations and collects log events]
+- _What does Metricbeat record?_[ takes the metrics and statistics that it collects and ships them to the output that you specify, such as Elasticsearch or Logstash.]
 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
@@ -90,7 +90,7 @@ Only the [Jump-Box]machine can accept connections from the Internet. Access to t
 - [76.124.*.*]
 
 Machines within the network can only be accessed by [Jump-Box using ssh]
-- _TODO: Which machine did you allow to access your ELK VM? [Jump-Box 10.4.0.4]
+- _Which machine did you allow to access your ELK VM? [Jump-Box 10.4.0.4]
 A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
@@ -104,30 +104,30 @@ A summary of the access policies in place can be found in the table below.
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_You can put a command from multiple servers into a single playbook.
+- _What is the main advantage of automating configuration with Ansible?_You can put a command from multiple servers into a single playbook.
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
+- _In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
 - ...[Install docker IO]
 - ...[Install python pip]
 - ...[Install docker]
 - ...[systemctl -w vm.max_max_map_counts=26144]
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+![TODO: Update the path with the name of your screenshot of docker ps output](https://github.com/sierra69/Week-13-Project/blob/main/Week-13-Project/Diagrams/docker-ps-output.PNG)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+- List the IP addresses of the machines you are monitoring_
 [Web-1 10.0.0.5 ]
 [Web-2 10.0.0.6]
 [Web-3 10.0.0.8]
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+- Specify which Beats you successfully installed_
 [Filebeat and Metricbeat]
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- _In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
 Fielbeat collect the changes done.
 Metricbeat collect metric and statistics.
 
@@ -139,10 +139,11 @@ SSH into the control node and follow the steps below:
 - Update the [config]file to include...
 - Run the playbook, and navigate to [Kibana] to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
+_Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_[/etc/ansible/hosts]
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
 [edit etc hosts fil to  webserves/elk server ip addresses]
 - _Which URL do you navigate to in order to check that the ELK server is running? [http://137.135.*.*:5601/app/kibana#/home] note wild card added as a sucurity measure not to be hacked.
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+  _absible-playbook install-elk.yml
